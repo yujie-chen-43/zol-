@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	<style type="text/css">
+			body,ul,li,p{
+				margin: 0;
+				padding: 0;
+			}
+			li{
+				list-style: none;
+			}
+			img{
+				display: block;
+				border: none;
+			}
+			#prodList li{
+				float: left;
+				margin: 10px;
+				width: 220px;
+				padding: 10px;
+				border: 1px solid #CECECE;
+			}
+			#prodList img{
+				width: 220px;
+				height: 220px;
+				overflow: hidden;
+			}
+			#prodList p{
+				margin: 10px 0;
+			}
+			#prodList input{
+				width: 120px;
+				height: 40px;
+				background: red;
+				color: white;
+				padding: 0;
+				border: none;
+				cursor: pointer;
+			}
+		</style>
+	</head>
+
+	<body>
+		<ul id="prodList">
+			
+		</ul>
+		<script src="cookie.js" type="text/javascript" charset="utf-8"></script>
+		<script src="cart.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var prodDatas = {
+				"10001":{
+					id:10001,
+					title:"商品1",
+					price:99,
+					imgsrc:"1.jpg"
+				},
+				"10002":{
+					id:10002,
+					title:"商品2",
+					price:199,
+					imgsrc:"2.jpg"
+				},
+				"10003":{
+					id:10003,
+					title:"商品3",
+					price:299,
+					imgsrc:"3.jpg"
+				}
+			}
+			
+			//cookie存取的是字符串
+			setCookie("prodDatas",JSON.stringify(prodDatas),7);
+			if(getCookie("prodDatas")){
+				var prodDatas = JSON.parse(getCookie("prodDatas"));
+			}
+			
+			var oProdList = document.getElementById("prodList");
+			var str = "";
+			//遍历数据  对象  for in
+			
+			for(let id in prodDatas){
+				str += `
+					<li>
+						<a href="detail.html?id=${id}"><img src="${prodDatas[id].imgsrc}"></a>
+						<p>${prodDatas[id].title}</p>
+						<p>${prodDatas[id].price}</p>
+						<input type="button" value="加入购物车" data-id="${id}">
+					</li>
+				`;
+			}
+			
+			oProdList.innerHTML = str;
+			
+			let cart = new Cart();
+			let aBtns = document.querySelectorAll("input");
+			for(let i = 0; i < aBtns.length; i++){
+				aBtns[i].onclick = function(){
+					let id = this.getAttribute("data-id");
+					cart.addData(id);
+				}
+			}
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+  <title></title>
+  <link rel="stylesheet" type="text/css" href="../css/resign.css"/>
+  <link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+  <link rel="stylesheet" type="text/css" href="../iconfont/iconfont.css"/>
+  <script src="../js/jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
+ </head>
+ <body>
+ 	<div class="header">
+ 		<div class="le fl">
+ 		<a href="www.zol.com" class="fl"><img src="../img/logo1.jpg"></a>
+ 		<p class="fl">中关村在线旗下导购平台</p>
+ 		
+ 		</div>
+ 		<div class="ri fr">
+ 		<h1 > 已经有值买账号?<a href="login.html">立即登录</a></h1>
+ 		</div>
+ 	</div>
+ <div class="connet">
+ <div class="top">
+ 	<p>30秒快速注册，加入值买</p>
+ </div>
+ <div class="center">
+ 	<div class="poho ">
+ 		<ul>
+ 			<li id="zhu"><i class=" iconfont icon-shouji"></i>用手机号注册</li>
+ 			<li id="ce"></li>
+ 		</ul>
+ 	</div>
+ 	<div class="lable1 ">
+ 	<ul>
+ 		<li>
+ 		<label for="phone"><i>*</i> 手机号：</label>
+        <input type="text" id="phone">
+        <span></span>
+ 		</li>
+ 		<li class="txt">请填写手机号码</li>
+ 		<li>
+ 		<label for="yan"><i>*</i> 验证码：</label>
+        <input type="button" id="number1" value="点击按钮进行验证">
+        <span></span>
+ 		</li>
+ 		<li class="txt">请完成验证</li>
+ 		<li>
+ 		<label for="yan"><i>*</i> 验证码：</label>
+        <input type="text" id="number2"><input id="number3" type="button" value="获取短信验证码" />
+        <span></span>
+ 		</li>
+ 		<li class="txt">请填写手机号，然后点击验证[获取验证码]</li>
+ 		<li>
+ 			 <label for="psd"><i>*</i> 密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：</label>
+        <input type="password" id="psd">
+        <span></span>
+ 		</li>
+ 		<li class="txt">6-16位字母和数字的组合，不可用特殊字符</li>
+ 		<li>
+ 		<label for="confirmPsd"><i>*</i> 确认密码：</label>
+        <input type="password" id="confirmPsd" >
+        <span></span>
+ 		</li>
+ 		<li class="txt">再次输入密码密码</li>
+ 	</ul>	
+ 	
+ 	
+ 	<script type="text/javascript">
+ 		window.onload  = function () {
+ 		   let isphone = false;
+ 		   let ispsd = false;
+	       let isconfirmPsd = false;
+	       
+	       let phone = document.getElementById('phone');
+	       let psd = document.getElementById('psd');
+	       let confirmPsd = document.getElementById('confirmPsd');
+	       
+	       //手机号码框
+	       phone.oninput = function () {
+	            let Reg = /^1[345789]\d{9}$/;
+	            if(Reg.test(this.value)){
+	                isphone = true;
+	                this.nextElementSibling.innerHTML='&nbsp;&nbsp;格式正确&nbsp;&nbsp;';
+	            }else{
+	                isphone = false;
+	                this.nextElementSibling.innerHTML='&nbsp;&nbsp;请输入有效的号码&nbsp;&nbsp;';
+	            }
+	        };
+	        // 手机号不能为空
+	        isNull(phone);
+	
+	// 密码框
+	       psd.oninput = function () {
+	           let Reg = /^.{6,16}$/;
+	           if(Reg.test(this.value)){
+	               ispsd = true;
+	               this.nextElementSibling.innerHTML='&nbsp;&nbsp;格式正确&nbsp;&nbsp;';
+	               confirmPsd.disabled = false;
+	           }else{
+	               ispsd = false;
+	               this.nextElementSibling.innerHTML='&nbsp;&nbsp;除了换行符之外的6-16位字符&nbsp;&nbsp;';
+	               confirmPsd.disabled = true;
+	           }
+	       } ;
+	        // 密码不能为空
+	        isNull(psd);
+	        
+	        
+	        // 确认密码框
+	        confirmPsd.oninput = function () {
+	            let Reg = /^.{6,16}$/;
+	            if(this.value ==  psd.value){
+	                isconfirmPsd  = true;
+	                this.nextElementSibling.innerHTML='&nbsp;&nbsp;格式正确&nbsp;&nbsp;';
+	            }else{
+	                isconfirmPsd  = false;
+	                this.nextElementSibling.innerHTML='&nbsp;&nbsp;两次密码输入不一致&nbsp;&nbsp;';
+	            }
+	        } ;
+	        // 确认密码不能为空
+	        isNull(confirmPsd);
+	        
+	        // 参数是否为空
+	        function isNull(obj) {
+	            obj.onblur = function () {
+	                if (obj.value == ""){
+	                    isobj = false;
+	                    this.nextElementSibling.innerHTML = '&nbsp;&nbsp;参数不能为空&nbsp;&nbsp;'
+	                }
+	            }
+	        }
+	        
+ 		}
+ 	</script>
+ 	
+ 	
+ 	
+ 	<div class="agree">
+ 		<input type="checkbox" />同意<a href="#">《商城用户写协议》</a><a href="#">《隐私权协议》</a>
+ 	</div>
+ 	<div class="submit">
+ 		<input type="button" value="提交" />
+ 	</div>
+ 	</div>
+ 	
+ </div>
+ </div>
+ 
+ 
+ <div class="footerwrap">
+ <div class="footer">
+ <div class="fol fl">
+ 	<a href="#">关于z商城</a><span>|</span><a href="#">联系我们</a><span>|</span><a href="#">帮助中心</a>
+ </div>	
+ <div class="for fr">
+ 	<p>©
+ 		<script type="text/javascript">
+ 			var yearStr;
+            now = new Date();
+            yearStr = now.getFullYear();
+            document.write(yearStr);
+ 		</script>
+ 		.中关村在线 版权所有</p>
+ </div>
+ </div>
+ </div>
+ </body>
+</html>

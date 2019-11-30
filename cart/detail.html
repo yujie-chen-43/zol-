@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="details">
+			
+		</div>
+		<script src="cookie.js" type="text/javascript" charset="utf-8"></script>
+		<script src="cart.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//取到商品的id
+			//console.log(location.search);
+			let id = location.search.split("=")[1];
+			
+			let prodDatas = JSON.parse(getCookie("prodDatas"));
+			
+			let oDetail = document.getElementById("details");
+			
+			oDetail.innerHTML = `
+				<img src="${prodDatas[id].imgsrc}">
+				<p>${prodDatas[id].title}</p>
+				
+				<span>-</span>
+				<input type="text">
+				<span>+</span>
+				
+				<input type="button" class="btn" value="加入购物车">
+			`;
+			
+			let cart = new Cart();
+			let aBtns = document.querySelectorAll(".btn");
+			
+			aBtns[0].onclick = ()=>{
+				cart.addData(id);
+				location = "cartList.html";
+			}
+			
+			
+		</script>
+	</body>
+</html>

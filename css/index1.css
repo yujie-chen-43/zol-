@@ -1,0 +1,574 @@
+body{background: #f6f6f6;}
+.header,.banner,.container,.footer,.connent,.today,.all{width: 965px;margin: 0 auto;}
+
+
+.headerwrap,.header{
+	height: 80px;
+	background: #FFFFFF;
+}
+.topL img{margin-top: 22px;}
+.topR{margin-right: 232px;margin-top: 18px;}
+.top1{
+	width: 400px;
+	height: 32px;
+	background: #a70000;
+}
+#txt1{
+	
+	width: 303px;
+	height: 20px;
+	color: #757575;
+	text-indent: 4px;
+	margin-top: 3px;
+	margin-left: 3px;
+}
+#txt2{
+	width: 85px;
+	height: 30px;
+	line-height: 32px;
+	color: white;
+	background: #A70000;
+	text-align: center;
+	border: none;
+}
+.top2 ul li{
+	float: left;
+	padding: 0 5px;
+	height: 30px;
+	line-height: 30px;
+	font-size: 12px;
+}
+#bao a{
+	color: red;	
+}
+.top2 ul li a:hover{color: red;}
+
+.bannerwrap{
+	width: 100%;
+	height: 32px;
+	background: white;
+	border-top: solid 1px #E6E6E6;
+}
+.container{
+	height: 32px;
+	background: white;
+	border-top: solid 1px #E6E6E6;
+	
+}
+.move{
+	position: fixed !important;
+	top: 0;
+}
+.container{border: none;}
+.navL li{
+	float: left;
+	height: 32px;
+	line-height: 32px;
+	font-size: 12px;
+	font-weight: 600;
+	padding-right: 40px;
+}
+#shouye a{color: red;}
+.navL li a:hover{color: red;}
+.navR li{
+	float: left;
+	height: 32px;
+	line-height: 32px;
+	padding:0 10px;
+}
+.navR li a:hover{color: red;}
+.navR li a i{
+	color: white;
+	border-radius:50% ;
+	width: 14px;
+	height: 14px;
+	background: red;
+	margin-right: 5px;
+}
+#denglu1 a{
+	color: red;
+	border-right:solid 1px #EEEEEE ;
+	padding:0 10px;
+	
+}
+.connent{
+	height: 303px;
+	background: white;
+	margin-top:8px ;
+}
+.banner{
+	width: 152px;
+	
+	
+}
+.fenlei{
+	height: 200px;
+}
+.fenlei h1{
+	width: 152px;
+	height: 48px;
+	line-height: 48px;
+	font-size: 16px;
+	text-indent: 12px;	
+}
+.fenlei li{
+	font-size: 12px;
+	height: 17px;
+	padding: 4px 0;
+	text-indent: 12px;
+	}
+.fenlei li a:hover{
+	color: red;
+}
+.fenlei li a span{
+	padding: 0 12px;
+	color: #e4e4e4;
+}
+.daohang h1{
+	width: 152px;
+	height: 48px;
+	line-height: 48px;
+	font-size: 16px;
+	text-indent: 12px;
+}
+.daohang li{
+	font-size: 12px;
+	height: 17px;
+	padding: 4px 0;
+	text-indent: 6px;
+}
+.daohang li a:hover{
+	color: red;
+}
+.daohang li i{
+	padding: 0 11px;
+}
+
+
+#sliderBox{
+				position: relative;
+				width: 800px;
+				height: 300px;
+				overflow: hidden;
+				float: right;
+			}
+			#imgList{
+				position: absolute;
+				height: 300px;
+			}
+			#imgList li{
+				float: left;
+			}
+			#imgList img{
+				width: 900px;
+				height: 300px;
+				overflow: hidden;
+			}
+			#btns span{
+				position: absolute;
+				width: 18px;
+				height: 35px;
+				background: #000;
+				color: white;
+				opacity: .3;
+				filter: alpha(opacity=30);
+				font-size: 10px;
+				text-align: center;
+				line-height: 35px;
+				top: 50%;
+				margin-top: -25px;
+				cursor: pointer;
+			}
+			#btns span:first-child{
+				left: 0px;
+			}
+			#btns span:last-child{
+				right: 0px;
+			}
+			#numList{
+				position: absolute;
+				bottom: 10px;
+				right: 50px;
+			}
+			#numList li{
+				float: left;
+				margin: 10px;
+				width: 15px;
+				height: 15px;
+				border-radius: 50%;
+				text-align: center;
+				line-height: 20px;
+				cursor: pointer;
+				background: white;
+				color: red;
+			}
+			#numList li.hover,#numList li:hover{
+				background: red;
+				color:white;
+			}
+	
+	
+
+
+.today{
+	margin-top:8px ;
+	height:267px ;
+}
+.todayL{
+	width: 712px;
+	float: left;
+	background: white;
+	height: 267px;
+}
+.jinri{
+	height: 33px;
+	width: 712px;
+}
+.jinri h1{
+	font-size: 17px;
+	font-style: italic;
+	text-indent: 15px;
+	line-height: 49px;
+}
+
+.jinri h1 span{
+	color: red;
+}
+.jinri h1 i{
+	
+	font-size: 12px;
+	color: #999999;
+	margin-left: 15px;
+}
+
+.jinri h1 p{
+	float: right;
+	height: 33px;
+	font-size: 12px;
+	margin-right: 17px;
+	color: #999999;}
+
+.shop1{
+	width: 115px;
+	height: 219px;
+	margin: 0 10px;
+}
+.shop1 dt img{
+	width: 115px;
+	height:115px ;
+}
+.shop1 dd h5{
+	width: 115px;
+	height: 32px;
+	font-size: 12px;
+	
+}
+.shop1 dd p{
+	width: 100px;
+	color: red;
+	font-size: 14px;
+	
+}
+.shop1 dd p del{
+	color: #999999;
+	font-size: 8px;
+	margin-left: 14px;
+}
+
+.todayR{
+	width: 241px;
+	height: 267px;
+	background: white;
+	
+}
+.todayR img{
+	width: 207px;
+	height: 214px;
+	padding: 25px 15px;
+}
+/*商品*/
+.all{
+	overflow-y: auto;
+}
+.allL{
+	width: 712px;
+	margin-top: 8px;
+	
+}
+.zhuanji{
+	height: 225px;
+	width: 712px;
+	background: white;
+}
+
+.huimai h2{
+	line-height: 48px;
+	width: 712px;
+	font-size: 18px;
+	font-weight: 800;
+	text-indent: 15px;
+}
+.huimai h2 span{
+	color: #999999;
+	font-size: 10px;
+	font-weight: normal;
+	margin-left: 15px;
+}
+.huimai h2  p{
+	float: right;
+	font-weight: normal;
+	color: #999999;
+	font-size: 12px;
+	margin-right: 15px;
+}
+.ipad dl{
+	width: 125px;
+	height: 170px;
+	float: left;
+	margin: 0 8px;
+	
+}
+.ipad dl dt img{
+	width: 125px;
+	height: 123px;
+}
+.ipad dl dd{
+	line-height: 24px;
+	font-size: 12px;
+}
+
+/*精选好物*/
+.jingxuan{
+	width: 712px;
+	background: white;
+	margin-top: 8px;
+    	
+}
+.tabItems{
+	width: 681px;
+	height: 41px;
+	border-bottom: solid 1px #969896;
+	margin: 0 16px;
+	
+	}
+.tabItems li{
+	line-height: 41px;
+	float: left;
+	width: 65px;
+	height: 41px;
+	text-align: center;
+	
+	margin-right: 30PX;
+	font-size: 16px;
+
+}
+.active{
+	color: red;
+	border-bottom: solid 1px red;
+}
+.contend{
+	
+	width: 681px;
+	
+	
+}
+.miaosha{
+	width: 681px;
+	height: 163px;
+	border-bottom: solid 1px #969896;
+	
+}
+.miaosha dt{
+	width: 138px;
+	height: 163px;
+	
+}
+.miaosha dt img{
+	width: 120px;
+	height: 120px;
+	margin: 15px 0;	
+}
+.miaosha dd{
+	width: 537px;
+	height: 163px;
+}
+.miaosha dd h3 {
+	width: 536px;
+	height: 28px;
+	line-height: 28px;
+	margin-top: 16px;
+}
+.miaosha dd h4{
+	width: 536px;
+	height: 28px;
+	line-height: 28px;
+	text-indent: 10px;
+	color: red;
+}
+.miaosha dd h5{
+	width: 536px;
+	height: 28px;
+	line-height: 28px;
+	font-size: 12px;
+	color: #477cc8;
+	
+}
+.miaosha dd p{
+	width: 536px;
+	height: 30px;
+	margin-top: 20px;
+	font-size: 12px;
+	
+	
+}
+.miaosha dd p img{
+	width: 20px;
+	height: 20px;
+	float: left;
+	margin-right: 10px;
+	
+}
+.miaosha dd p span{
+	color: #666666;
+	margin-left: 15px;
+}
+.miaosha dd p i{
+	display: block;
+	width: 103px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	background: #ffa133;
+	color: white;
+	float:right;
+	margin-right: 15px;
+	
+}
+.miaosha dd p b{
+	display:block;
+	width: 80px;
+	height: 30px;
+	float:right;
+	line-height: 30px;
+	text-align: center;
+	background: #f74b44;
+	color: white;
+	
+	font-size: 12px;
+	font-weight: normal;
+}
+
+.allR{
+	width: 238px;
+	height: 340px;
+	background: white;
+	margin-left: 8px;
+	margin-top: 8px;
+}
+.allR_1{
+	width: 240px;
+	height: 340px;
+}
+.allR_1 h1{
+	height: 50px;
+	width: 183px;
+	font-size: 18px;
+	line-height: 50px;
+	text-indent: 15px;
+}
+.allR_1 h1 span{
+	margin-left: 8px;
+	font-size: 12px;
+	color: #999999;
+	
+}
+
+.allR_1 dl{
+	width: 96px;
+	height: 100px;
+	margin: 20px 9px;
+	float: left;
+
+}
+.allR_1 dt {
+	width: 95px;
+	height: 95px;
+	
+}
+.allR_1 dt img{margin: 0 auto;}
+.allR_1 dl dd {
+	color: red;
+	
+}
+.allR_1 dl dd del{
+	color: #969896;
+	margin-left: 10px;
+
+
+}
+.arrR_2{
+	width: 240px;
+	height: 258px;
+	background: white;
+	margin-top: 8px;
+	overflow: hidden;
+}
+.arrR_2 img{
+	
+	width: 208px;
+	height: 220px;
+	margin: 16px auto;
+}
+
+
+
+	#toTop {
+        position: fixed;
+        right: 50px;
+        bottom: 100px;
+        z-index: 12;
+        display: none;
+        width: 50px;
+        height: 50px;
+        text-align: center;
+        cursor: pointer;
+        color:blueviolet;
+      }
+
+
+
+
+/*底部*/
+.footerwrap{
+	width: 100%;
+	height: 32px;
+	background: #333333;
+	position: fixed;
+	bottom: 0;
+}
+
+.footer,{
+	height: 32px;
+	background: #333333;
+	position: fixed;
+	bottom: 0;
+}
+.fooL {
+	height: 32px;
+	line-height: 32px;
+	color: white;
+	
+}
+.fooR ul li{
+	margin: 8px 0;
+	float: left;
+	width: 64px;
+	height: 16px;
+	line-height: 16px;
+	text-align: center;
+	border-right:solid 1px #b8b8b8 ;
+}
+#last{border: none;}
+.fooR ul li a{
+	color: #b8b8b8;
+}

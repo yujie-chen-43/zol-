@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../css/Ghost.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="../iconfont/iconfont.css"/>
+		<script src="../js/startMove.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/bootstrap.js" type="text/javascript" charset="utf-8"></script>
+		
+	</head>
+	<body>
+		<div class="headerwrap">
+		<div class="header">
+			<div class="topL fl">
+				<img src="../img/logo.jpg"/>
+			</div>
+			<div class="topR fr">
+				<div class="top1">
+				<input type="text" name="" id="txt1" value="" placeholder="请输入搜索关键字" />
+				<input type="button" name="" id="txt2" value="搜索" />
+				</div>
+				<div class="top2">
+					<ul>
+						<li><a href="#">雪纺衫</a></li>
+						<li id="bao"><a href="#">女包</a></li>
+						<li><a href="#">凉鞋新品</a></li>
+						<li><a href="#">短袖T恤</a></li>
+						<li><a href="#">半身裙</a></li>
+						<li><a href="#">薄七分裤</a></li>
+						<li><a href="#">帆布鞋</a></li>
+						<li><a href="#">凉席</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		</div>
+		
+		<div class="bannerwrap">
+              <div class="container">
+                   <ul class="navL ">
+                   	<li id="shouye"><a href="#">首页</a></li>
+                   	<li><a href="#">好价</a></li>
+                   	<li><a href="#">好物</a></li>
+                   	<li><a href="#">好店</a></li>
+                   	<li><a href="#">团购</a></li>
+                   </ul>
+                   <ul class="navR fr">
+                   	<li ><a href="#"><i class="iconfont icon-xiezi"></i>爆料投稿</a></li>
+                   	<li id="denglu1"><a href="login.html">登录</a></li>
+                  	<li><a href="resigin.html">注册</a></li>
+                   </ul>
+              </div> 
+		</div>
+		
+		<!--导航栏滚动时定位在顶部，滑动时回到原位-->
+	<script type="text/javascript">
+	var oTop = document.getElementsByClassName("bannerwrap")[0];
+	window.onscroll=function(){
+	 	var t = document.documentElement.scrollTop||document.body.scrollTop;
+	 	if(t>80){
+	 		$(".bannerwrap").addClass('move');
+	 		
+	 	}else{
+	 		$(".bannerwrap").removeClass('move');
+	 	}
+
+	 }
+		</script>
+<!--页面中间-->
+<div class="connent">
+	<div class="banner fl">
+		<ul class="fenlei">
+			<h1 >热门分类</h1>
+			<li><a href="">手机数码<span>|</span>电脑办公</a></li>
+			<li><a href="">钟表首饰<span>|</span>美妆护肤</a></li>
+			<li><a href="">家居日用<span>|</span>家电影音</a></li>
+			<li><a href="">服饰运动<span>|</span>图书礼品</a></li>
+			<li><a href="">零食饮品<span>|</span>母婴玩具</a></li>
+			<li><a href="">汽车用品<span>|</span>9块9包邮</a></li>
+		</ul>
+		
+		<ul class="daohang">
+			<h1>热门导航</h1>
+			<li><a href="#"><i>好价</i><i>好物</i><i>好店</i></a></li>
+			<li><a href="#"><i>淘宝</i><i>好物</i><i>好店</i></a></li>
+		</ul>
+	</div>
+	
+	<!--图片轮播-->
+	<div  id="sliderBox">
+			<ul id="imgList">
+				<li><img src='../img/banner1.jpg'></li>
+				<li><img src='../img/banner2.jpg'></li>
+				<li><img src='../img/banner3.jpg'></li>
+				<li><img src='../img/banner1.jpg'></li><!--补一张是为了实现无缝轮播的-->
+			</ul>
+			<div id="btns">
+				<span>&lt;</span>
+				<span>&gt;</span>
+			</div>
+			<ul id="numList">
+				<li class="hover"></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+</div>
+
+<script type="text/javascript">
+			let oSliderBox = document.getElementById("sliderBox");
+			let oImgList = document.getElementById("imgList");
+			
+			let oNumList = document.getElementById("numList");
+			let aNumList = oNumList.children;
+			
+			let aImgList = oImgList.children;
+			let perWidth = aImgList[0].offsetWidth;
+			
+			oImgList.style.width = perWidth * aImgList.length + "px";
+			
+			let i = 0;
+			let timer = setInterval(()=>{
+				move();
+			},3000);
+			
+			function move(){
+				i++;
+				if(i==aImgList.length){
+					oImgList.style.left = 0;
+					i = 1;
+				}
+				
+				if(i==-1){
+					oImgList.style.left = -perWidth*(aImgList.length-1) + "px";
+					i = aImgList.length - 2;
+				}
+				
+				
+				//控制角标样式的变化
+				for(let j = 0; j < aNumList.length; j++){
+					aNumList[j].className = "";
+				}
+				if(i==aImgList.length-1){
+					aNumList[0].className = "hover";
+				}else{
+					aNumList[i].className = "hover";
+				}
+				
+				startMove(oImgList,{'left':-perWidth*i});
+			}
+			
+			//按钮点击
+			let oBtn = document.getElementById("btns");
+			let aBtns = oBtn.children;
+			//
+			aBtns[0].onclick = function(){
+				i-=2;
+				move();
+			}
+			
+			//右边的按钮123123
+			aBtns[1].onclick = function(){
+				move();
+			}
+			
+			//角标控制图片变化
+			
+			for(let j = 0; j < aNumList.length; j++){
+				aNumList[j].onmouseover = function(){
+					i = j-1;
+					move();
+				}
+			}
+			
+			
+			//鼠标移入轮播区域  清定时器
+			oSliderBox.onmouseover = function(){
+				clearInterval(timer);
+			}
+			
+			oSliderBox.onmouseout = function(){
+				timer = setInterval(move,3000);
+			}
+			</script>
+<!--今日抢购-->
+<div class="today">
+	<div class="todayL fl">
+		<div class="jinri">
+		<h1>今日<span>抢购</span><i>特价不停</i><p>查看更多</p></h1>
+	   
+	   </div>
+	<div class="shop">
+		<dl class="shop1 fl">
+			<dt><img src="../img/img1.jpg"></dt>
+			<dd>
+				<h5>甲骨龙电脑主机 i5 9600k RX5700 8G独</h5>
+				<p>￥5998<del>￥6699</del></p>
+			</dd>
+		</dl>
+		<dl class="shop1 fl">
+			<dt><img src="../img/img2.jpg"></dt>
+			<dd>
+				<h5>甲骨龙电脑主机 i5 9600k RX5700 8G独</h5>
+				<p>￥5998<del>￥6699</del></p>
+			</dd>
+		</dl>
+		<dl class="shop1 fl">
+			<dt><img src="../img/img3.jpg"></dt>
+			<dd>
+				<h5>甲骨龙电脑主机 i5 9600k RX5700 8G独</h5>
+				<p>￥5998<del>￥6699</del></p>
+			</dd>
+		</dl>
+		<dl class="shop1 fl">
+			<dt><img src="../img/img4.jpg"></dt>
+			<dd>
+				<h5>甲骨龙电脑主机 i5 9600k RX5700 8G独</h5>
+				<p>￥5998<del>￥6699</del></p>
+			</dd>
+		</dl>
+		<dl class="shop1 fl">
+			<dt><img src="../img/img5.jpg"></dt>
+			<dd>
+				<h5>甲骨龙电脑主机 i5 9600k RX5700 8G独</h5>
+				<p>￥5998<del>￥6699</del></p>
+			</dd>
+		</dl>
+		
+	</div>
+    </div>	
+    <div class="todayR fr">
+    	<img src="../img/img6.jpg"/>
+    </div>
+</div>
+
+
+<!--所有商品-->
+<div class="all">
+	<div class="allL clean fl">
+		<div class="zhuanji">
+			<div class="huimai">
+				<h2>会买专辑<span>甄选优质好物</span><p>查看更多</p></h2>
+			</div>
+			<div class="ipad">
+				<dl>
+					<dt><img src="../img/img7.jpg"></dt>
+					<dd>终于买到的盖泡面神器  新到手的iPad Air</dd>
+				</dl>
+				<dl>
+					<dt><img src="../img/img8.jpg"></dt>
+					<dd>终于买到的盖泡面神器  新到手的iPad Air</dd>
+				</dl>
+				<dl>
+					<dt><img src="../img/img9.jpg"></dt>
+					<dd>终于买到的盖泡面神器  新到手的iPad Air</dd>
+				</dl>
+				<dl>
+					<dt><img src="../img/img10.jpg"></dt>
+					<dd>终于买到的盖泡面神器  新到手的iPad Air</dd>
+				</dl>
+				<dl>
+					<dt><img src="../img/img11.jpg"></dt>
+					<dd>终于买到的盖泡面神器  新到手的iPad Air</dd>
+				</dl>
+			</div>
+		</div>
+<div class="jingxuan">
+   <ul class="tabItems">
+    <li class="active">精选好价</li>
+    <li>达人推荐</li>
+    <li>精选好物</li>
+</ul>
+<div class="contend">
+    <div>
+    	<dl class="miaosha">
+    		<dt class="fl"><img src="../img/ig1.jpg"/></dt>
+    		<dd class="fr">
+    			<h3>好理吉42卷纸巾本色卫生纸整箱批发实惠装厕所家用无芯卷筒纸手纸</h3>
+    			<h4>16.9元（需用卷）</h4>
+    			<h5>查看详情</h5>
+    			<p><img src="../img/tianmao.jpg" />天猫商城<span>月销64万</span><b>去看看</b><i>领劵立减3元</i></p>
+    		</dd>
+    	</dl>
+    	<dl class="miaosha">
+    		<dt class="fl"><img src="../img/ig2.jpg"/></dt>
+    		<dd class="fr">
+    			<h3>好理吉42卷纸巾本色卫生纸整箱批发实惠装厕所家用无芯卷筒纸手纸</h3>
+    			<h4>16.9元（需用卷）</h4>
+    			<h5>查看详情</h5>
+    			<p><img src="../img/tianmao.jpg" />天猫商城<span>月销64万</span><b>去看看</b><i>领劵立减3元</i></p>
+    		</dd>
+    	</dl>
+    	<dl class="miaosha">
+    		<dt class="fl"><img src="../img/ig3.jpg"/></dt>
+    		<dd class="fr">
+    			<h3>好理吉42卷纸巾本色卫生纸整箱批发实惠装厕所家用无芯卷筒纸手纸</h3>
+    			<h4>16.9元（需用卷）</h4>
+    			<h5>查看详情</h5>
+    			<p><img src="../img/tianmao.jpg" />天猫商城<span>月销64万</span><b>去看看</b><i>领劵立减3元</i></p>
+    		</dd>
+    	</dl>
+    	<dl class="miaosha">
+    		<dt class="fl"><img src="../img/ig4.jpg"/></dt>
+    		<dd class="fr">
+    			<h3>好理吉42卷纸巾本色卫生纸整箱批发实惠装厕所家用无芯卷筒纸手纸</h3>
+    			<h4>16.9元（需用卷）</h4>
+    			<h5>查看详情</h5>
+    			<p><img src="../img/tianmao.jpg" />天猫商城<span>月销64万</span><b>去看看</b><i>领劵立减3元</i></p>
+    		</dd>
+    	</dl>
+    	<dl class="miaosha">
+    		<dt class="fl"><img src="../img/ig5.jpg"/></dt>
+    		<dd class="fr">
+    			<h3>好理吉42卷纸巾本色卫生纸整箱批发实惠装厕所家用无芯卷筒纸手纸</h3>
+    			<h4>16.9元（需用卷）</h4>
+    			<h5>查看详情</h5>
+    			<p><img src="../img/tianmao.jpg" />天猫商城<span>月销64万</span><b>去看看</b><i>领劵立减3元</i></p>
+    		</dd>
+    	</dl>
+    	<dl class="miaosha">
+    		<dt class="fl"><img src="../img/ig1.jpg"/></dt>
+    		<dd class="fr">
+    			<h3>好理吉42卷纸巾本色卫生纸整箱批发实惠装厕所家用无芯卷筒纸手纸</h3>
+    			<h4>16.9元（需用卷）</h4>
+    			<h5>查看详情</h5>
+    			<p><img src="../img/tianmao.jpg" />天猫商城<span>月销64万</span><b>去看看</b><i>领劵立减3元</i></p>
+    		</dd>
+    	</dl>
+    	<dl class="miaosha">
+    		<dt class="fl"><img src="../img/ig2.jpg"/></dt>
+    		<dd class="fr">
+    			<h3>好理吉42卷纸巾本色卫生纸整箱批发实惠装厕所家用无芯卷筒纸手纸</h3>
+    			<h4>16.9元（需用卷）</h4>
+    			<h5>查看详情</h5>
+    			<p><img src="../img/tianmao.jpg" />天猫商城<span>月销64万</span><b>去看看</b><i>领劵立减3元</i></p>
+    		</dd>
+    	</dl>
+    	<dl class="miaosha">
+    		<dt class="fl"><img src="../img/ig3.jpg"/></dt>
+    		<dd class="fr">
+    			<h3>好理吉42卷纸巾本色卫生纸整箱批发实惠装厕所家用无芯卷筒纸手纸</h3>
+    			<h4>16.9元（需用卷）</h4>
+    			<h5>查看详情</h5>
+    			<p><img src="../img/tianmao.jpg" />天猫商城<span>月销64万</span><b>去看看</b><i>领劵立减3元</i></p>
+    		</dd>
+    	</dl>
+    	<dl class="miaosha">
+    		<dt class="fl"><img src="../img/ig4.jpg"/></dt>
+    		<dd class="fr">
+    			<h3>好理吉42卷纸巾本色卫生纸整箱批发实惠装厕所家用无芯卷筒纸手纸</h3>
+    			<h4>16.9元（需用卷）</h4>
+    			<h5>查看详情</h5>
+    			<p><img src="../img/tianmao.jpg" />天猫商城<span>月销64万</span><b>去看看</b><i>领劵立减3元</i></p>
+    		</dd>
+    	</dl>
+    	<dl class="miaosha">
+    		<dt class="fl"><img src="../img/ig5.jpg"/></dt>
+    		<dd class="fr">
+    			<h3>好理吉42卷纸巾本色卫生纸整箱批发实惠装厕所家用无芯卷筒纸手纸</h3>
+    			<h4>16.9元（需用卷）</h4>
+    			<h5>查看详情</h5>
+    			<p><img src="../img/tianmao.jpg" />天猫商城<span>月销64万</span><b>去看看</b><i>领劵立减3元</i></p>
+    		</dd>
+    	</dl>
+    </div>
+    <div>
+    	<dl class="miaosha">
+    		<dt class="fl"><img src="../img/ig5.jpg"/></dt>
+    		<dd class="fr">
+    			<h3>好理吉42卷纸巾本色卫生纸整箱批发实惠装厕所家用无芯卷筒纸手纸</h3>
+    			<h4>16.9元（需用卷）</h4>
+    			<h5>查看详情</h5>
+    			<p><img src="../img/tianmao.jpg" />天猫商城<span>月销64万</span><b>去看看</b><i>领劵立减3元</i></p>
+    		</dd>
+    	</dl>
+    	<dl class="miaosha">
+    		<dt class="fl"><img src="../img/ig4.jpg"/></dt>
+    		<dd class="fr">
+    			<h3>好理吉42卷纸巾本色卫生纸整箱批发实惠装厕所家用无芯卷筒纸手纸</h3>
+    			<h4>16.9元（需用卷）</h4>
+    			<h5>查看详情</h5>
+    			<p><img src="../img/tianmao.jpg" />天猫商城<span>月销64万</span><b>去看看</b><i>领劵立减3元</i></p>
+    		</dd>
+    	</dl>
+    	<dl class="miaosha">
+    		<dt class="fl"><img src="../img/ig3.jpg"/></dt>
+    		<dd class="fr">
+    			<h3>好理吉42卷纸巾本色卫生纸整箱批发实惠装厕所家用无芯卷筒纸手纸</h3>
+    			<h4>16.9元（需用卷）</h4>
+    			<h5>查看详情</h5>
+    			<p><img src="../img/tianmao.jpg" />天猫商城<span>月销64万</span><b>去看看</b><i>领劵立减3元</i></p>
+    		</dd>
+    	</dl>
+    	<dl class="miaosha">
+    		<dt class="fl"><img src="../img/ig2.jpg"/></dt>
+    		<dd class="fr">
+    			<h3>好理吉42卷纸巾本色卫生纸整箱批发实惠装厕所家用无芯卷筒纸手纸</h3>
+    			<h4>16.9元（需用卷）</h4>
+    			<h5>查看详情</h5>
+    			<p><img src="../img/tianmao.jpg" />天猫商城<span>月销64万</span><b>去看看</b><i>领劵立减3元</i></p>
+    		</dd>
+    	</dl>
+    	<dl class="miaosha">
+    		<dt class="fl"><img src="../img/ig1.jpg"/></dt>
+    		<dd class="fr">
+    			<h3>好理吉42卷纸巾本色卫生纸整箱批发实惠装厕所家用无芯卷筒纸手纸</h3>
+    			<h4>16.9元（需用卷）</h4>
+    			<h5>查看详情</h5>
+    			<p><img src="../img/tianmao.jpg" />天猫商城<span>月销64万</span><b>去看看</b><i>领劵立减3元</i></p>
+    		</dd>
+    	</dl>
+    </div>
+    <div>
+      <dl class="miaosha">
+    		<dt class="fl"><img src="../img/ig4.jpg"/></dt>
+    		<dd class="fr">
+    			<h3>好理吉42卷纸巾本色卫生纸整箱批发实惠装厕所家用无芯卷筒纸手纸</h3>
+    			<h4>16.9元（需用卷）</h4>
+    			<h5>查看详情</h5>
+    			<p><img src="../img/tianmao.jpg" />天猫商城<span>月销64万</span><b>去看看</b><i>领劵立减3元</i></p>
+    		</dd>
+    	</dl>
+    	<dl class="miaosha">
+    		<dt class="fl"><img src="../img/ig3.jpg"/></dt>
+    		<dd class="fr">
+    			<h3>好理吉42卷纸巾本色卫生纸整箱批发实惠装厕所家用无芯卷筒纸手纸</h3>
+    			<h4>16.9元（需用卷）</h4>
+    			<h5>查看详情</h5>
+    			<p><img src="../img/tianmao.jpg" />天猫商城<span>月销64万</span><b>去看看</b><i>领劵立减3元</i></p>
+    		</dd>
+    	</dl>
+    	<dl class="miaosha">
+    		<dt class="fl"><img src="../img/ig1.jpg"/></dt>
+    		<dd class="fr">
+    			<h3>好理吉42卷纸巾本色卫生纸整箱批发实惠装厕所家用无芯卷筒纸手纸</h3>
+    			<h4>16.9元（需用卷）</h4>
+    			<h5>查看详情</h5>
+    			<p><img src="../img/tianmao.jpg" />天猫商城<span>月销64万</span><b>去看看</b><i>领劵立减3元</i></p>
+    		</dd>
+    	</dl>
+    	<dl class="miaosha">
+    		<dt class="fl"><img src="../img/ig2.jpg"/></dt>
+    		<dd class="fr">
+    			<h3>好理吉42卷纸巾本色卫生纸整箱批发实惠装厕所家用无芯卷筒纸手纸</h3>
+    			<h4>16.9元（需用卷）</h4>
+    			<h5>查看详情</h5>
+    			<p><img src="../img/tianmao.jpg" />天猫商城<span>月销64万</span><b>去看看</b><i>领劵立减3元</i></p>
+    		</dd>
+    	</dl>
+    	<dl class="miaosha">
+    		<dt class="fl"><img src="../img/ig5.jpg"/></dt>
+    		<dd class="fr">
+    			<h3>好理吉42卷纸巾本色卫生纸整箱批发实惠装厕所家用无芯卷筒纸手纸</h3>
+    			<h4>16.9元（需用卷）</h4>
+    			<h5>查看详情</h5>
+    			<p><img src="../img/tianmao.jpg" />天猫商城<span>月销64万</span><b>去看看</b><i>领劵立减3元</i></p>
+    		</dd>
+    	</dl>
+    </div>
+</div>
+
+<script type="text/javascript">
+	  $(window).load(function(){
+        $(".contend>div").eq(0).show().siblings().hide();
+    });
+    
+     $(".tabItems>li").click(function () {
+        $(this).addClass("active").siblings().removeClass("active");
+        var index = $(this).index();
+        $(".contend>div").eq(index).show().siblings().hide();
+    })
+     
+ var p="{$other.p}";  
+if(p=="") p=1;  
+ var stop=true;//触发开关，防止多次调用事件  
+ $(window).scroll(function() {    
+      //当内容滚动到底部时加载新的内容 100当距离最底部100个像素时开始加载.  
+      if ($(this).scrollTop() + $(window).height() + 100 >= $(document).height() && $(this).scrollTop() > 100) {    
+            
+          if(stop==true){  
+              stop=false;  
+              p=p+1;//当前要加载的页码    
+              canshu="?t={$other.t}&p="+p+"&cid={$other.cid}";  
+               //加载提示信息  
+               $(".contend").append("<dl class='miaosha'><div style='font-size:2em'>Loding.....</div></dl>");  
+               $.get("nextpage.html"+canshu,function(data){  
+              
+                   $(".miaosha").hide();  
+                   $(".contend").append(data);//把新的内容加载到内容的后面  
+                   
+                   stop=true;  
+               })  
+         }  
+      }    
+  });   
+
+     
+</script>
+</div>
+	</div>
+	<div class="allR fr">
+		<div class="allR_1">
+			<h1>热门团购<span>智能潮货hi不停</span></h1>
+			<dl>
+				<dt><img src="../img/tuangou.jpg"></dt>
+				<dd>￥2850<del>￥3009</del></dd>
+			</dl>
+			<dl>
+				<dt><img src="../img/tuangou.jpg"></dt>
+				<dd>￥2850<del>￥3009</del></dd>
+			</dl>
+			<dl>
+				<dt><img src="../img/tuangou.jpg"></dt>
+				<dd>￥2850<del>￥3009</del></dd>
+			</dl>
+			<dl>
+				<dt><img src="../img/tuangou.jpg"></dt>
+				<dd>￥2850<del>￥3009</del></dd>
+			</dl>
+		</div>
+		<div class="arrR_2">
+			<img src="../img/img12.jpg" />
+		</div>
+	</div>
+	
+</div>
+
+<!--返回顶部-->
+<div id="toTop" class="hidden-xs" style="display: none;">TOP</div>
+
+<script type="text/javascript">
+	$(window).scroll(function() {
+        if ($(this).scrollTop() != 0) {
+          $("#toTop").fadeIn();
+        } else {
+          $("#toTop").fadeOut();
+        }
+      });
+
+      $("#toTop").click(function() {
+        $("body,html").animate(
+          {
+            scrollTop: 0
+          },
+          800
+        );
+      });
+</script>
+
+
+
+<!--页面底部-->
+<div class="footerwrap">
+			<div class="footer">
+				<div class="fooL fl">
+ 	    <p>©
+ 		<script type="text/javascript">
+ 			var yearStr;
+            now = new Date();
+            yearStr = now.getFullYear();
+            document.write(yearStr);
+ 		</script>
+ 		.中关村在线 版权所有</p>
+             </div>
+             <div class="fooR fr">
+             	<ul>
+             		<li><a href="">公司简介</a></li>
+             		<li><a href="">公司历程</a></li>
+             		<li><a href="">营销推广</a></li>
+             		<li><a href="">媒体合作</a></li>
+             		<li><a href="">品牌大全</a></li>
+             		<li><a href="">注册账号</a></li>
+             		<li><a href="">招聘信息</a></li>
+             		<li><a href="">联系方式</a></li>
+             		<li><a href="">隐私声明</a></li>
+             		<li><a href="">站点地图</a></li>
+             		<li id="last"><a href="">反馈纠错</a></li>
+             	</ul>
+             </div>
+			 </div>
+		</div>
+		
+	</body>
+</html>

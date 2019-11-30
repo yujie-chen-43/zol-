@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+  <title></title>
+  <link rel="stylesheet" type="text/css" href="../css/login.css"/>
+  <link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+  <link rel="stylesheet" type="text/css" href="../iconfont/iconfont.css"/>
+  <script src="../js/jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
+  <style type="text/css">
+  	.active{
+  		border-bottom: solid 1px red;
+  	}
+  	.show {
+         display: block;
+}
+dl{
+	display: none;
+}
+  </style>
+ </head>
+ <body>
+ 	<div class="header">
+ 		<div class="le fl">
+ 		<a href="index.html" class="fl"><img src="../img/logo1.jpg"></a>
+ 		<p class="fl">中关村在线旗下导购平台</p>
+ 		
+ 		</div>
+ 		<div class="ri fr">
+ 		<h1 > 还没有值买账号?<a href="resigin.html">立即注册</a></h1>
+ 		</div>
+ 	</div>
+ <div class="connet">
+ <img class="fl" src="../img/loginL.jpg"/>
+ <div class="loginwrap fr">	
+ <div class="login ">
+ <ul>
+ 	<li class="active">登录值买</li>
+ 	<li >商家登录</li>
+ </ul>	
+ 
+ 
+ <dl class="show">
+ <input type="text" id="user" value="手机号/邮箱/用户名"/>
+ <input type="text" id="mima" value="密码">
+ <P class="forget"><i class="iconfont icon-shouji"></i>手机动态码登录<span>忘记密码</span></P>
+ <a href="index.html"><input class="yes" type="button" value="登录" /></a>
+ <P class="hezuo">合作账号登录</P>
+<h2 class="tubiao"><i class="iconfont icon-weixin"></i><i class="iconfont icon-weibo"></i><i class="iconfont icon-qq"></i><i class="iconfont icon-zhifubaozhifu"></i><i class=" iconfont icon-icon_baidulogo"></i></h2>
+</dl>
+ <dl  id="denglu">
+ <input type="text" id="user" value="手机号/邮箱/用户名"/>
+ <input type="text" id="mima" value="密码">
+ <P class="forget"><span>忘记密码</span></P>
+ <a href="index.html"><input class="yes" type="button" value="登录" /></a>
+ </dl>
+ <script>
+var aButton = document.getElementsByTagName('li');
+var aDiv = document.getElementsByTagName('dl');
+for (var i = 0; i < aButton.length; i++) {
+aButton[i].index=i;
+aButton[i].onclick = function () {
+for (var j = 0; j < aButton.length; j++) {
+aButton[j].className = '';
+aDiv[j].className = '';
+}
+this.className = 'active';
+aDiv[this.index].className = 'show';
+};
+}
+</script>
+ </div>
+ </div>
+ </div>
+ 
+ 
+ <div class="footerwrap">
+ <div class="footer">
+ <div class="fol fl">
+ 	<a href="#">关于z商城</a><span>|</span><a href="#">联系我们</a><span>|</span><a href="#">帮助中心</a>
+ </div>	
+ <div class="for fr">
+ 	<p>©
+ 		<script type="text/javascript">
+ 			var yearStr;
+            now = new Date();
+            yearStr = now.getFullYear();
+            document.write(yearStr);
+ 		</script>
+ 		.中关村在线 版权所有</p>
+ </div>
+ </div>
+ </div>
+ </body>
+</html>

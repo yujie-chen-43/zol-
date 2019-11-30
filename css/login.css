@@ -1,0 +1,155 @@
+body{background: #fafafa;}
+
+.header,.connet,.footer{width: 890px;margin: 0 auto;}
+.header{
+	height: 154px;
+}
+.le{
+	overflow: hidden;
+	margin-top: 45px;
+}
+.le a img{
+	
+	margin: 0 15px;
+}
+.le p{
+	width: 164px;
+	height: 40px;
+	font-size: 12px;
+	line-height: 40px;
+	text-align: center;
+	border-left: solid 1px #e6e6e6;
+}
+.ri{margin-top:60px;}
+.ri h1
+{
+	font-size: 12px;
+	}
+.ri h1 a{color: red;
+width: 62px;
+height: 16px;
+padding: 3px 10px;
+}
+.ri h1 a:hover{
+	background: red;
+	color: #FFFFFF;
+}
+
+.connet{
+	height: 315px;
+	border: solid 1px #e6e6e6;
+}
+.loginwrap{
+	height: 315px;
+	width: 420px;
+	
+}
+.login{
+	width: 262px;
+	height: 315px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+.login ul{
+	margin-top: 13px;
+}
+.login ul li{
+	float: left;
+	width: 130px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	font-size: 14px;
+	
+}
+
+
+
+
+#user,#mima{
+	width: 258px;
+	height: 34px;
+	line-height: 34px;
+	margin-top: 15px;
+	text-indent: 4px;
+}
+.forget{
+	width:260px ;
+	height: 36px;
+	line-height: 36px;
+	
+}
+.forget i{color: red;padding-right:10px ;}
+.forget span{
+	float: right;
+	color: blue;
+}
+.yes{
+	width: 260px;
+	height: 36px;
+	background: red;
+	color: white;
+	line-height: 36px;
+	text-align: center;
+	font-size: 14px;
+	border: none;
+}
+.hezuo{
+	width: 260px;
+	height: 36px;
+	line-height: 36px;
+	text-align: center;
+	font-size: 14px;
+	
+}
+.tubiao i{
+	font-size: 22px;
+	height: 36px;
+	line-height: 36px;
+	border-radius:50% ;
+	border: solid 1px #DEDEDE ;
+	padding: 10px;
+	margin: 4px;
+	
+}
+
+
+
+
+
+
+
+.footerwrap{height: 50px;border-top:solid 1px #e6e6e6;margin-top: 54px;}
+
+.footer{
+	height: 50px;
+	
+}
+.fol{
+	width: 200px;
+	height: 40px;
+	
+}
+.fol a{
+	font-size: 12px;
+	line-height: 40px;
+}
+.fol a:hover{text-decoration: underline; color: red;}
+.fol span{
+	padding: 0 10px;
+}
+.for p {
+	width: 164px;
+	height: 40px;
+	font-size: 12px;
+	line-height: 40px;
+}
+
+
+
+
+
+
+
+
+	

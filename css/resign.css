@@ -1,0 +1,184 @@
+
+
+.header,.connet,.footer{width: 890px;margin: 0 auto;}
+.header{
+	height: 154px;
+}
+.le{
+	overflow: hidden;
+	margin-top: 45px;
+}
+.le a img{
+	
+	margin: 0 15px;
+}
+.le p{
+	width: 164px;
+	height: 40px;
+	font-size: 12px;
+	line-height: 40px;
+	text-align: center;
+	border-left: solid 1px #e6e6e6;
+}
+.ri{margin-top:60px;}
+.ri h1
+{
+	font-size: 12px;
+	}
+.ri h1 a{color: red;
+width: 62px;
+height: 16px;
+padding: 3px 10px;
+}
+.ri h1 a:hover{
+	background: red;
+	color: #FFFFFF;
+}
+
+.connet{
+	height: 670px;
+	border: solid 1px #e6e6e6;
+}
+.top{
+	width: 890px;
+	height: 55px;
+	background: #fafafa;
+	line-height: 55px;
+	text-align: center;
+	font-size: 16px;
+	color: #999999;
+}
+.center{
+	width: 455px;
+	margin-top: 27px;
+	margin-left: 79px;
+	
+	position: absolute;
+}
+.poho ul li{
+	float: left;
+	width: 225px;
+	height: 34px;
+	color: red;
+	line-height: 34px;
+	font-size: 14px;
+	text-align: center;
+	
+}
+#zhu{
+	border-top: solid 1px red;
+	border-left: solid 1px #EEEEEE;
+	border-right: solid 1px #EEEEEE;
+}
+#ce{
+	border-bottom: solid 1px #EEEEEE;
+}
+.lable1{
+	position: relative;
+	width: 550px;
+	height: 465px;
+	
+	margin-top: 65px;
+	margin-left: 14px;
+	
+}
+.lable1 ul li{
+	width: 336px;
+	height:38px ;
+	line-height: 38px;
+}
+.lable1 ul li label i{color: red;}
+.lable1 ul li  span{
+            display: inline-block;
+            line-height: 30px;
+            height: 30px;
+            border-radius: 5px;
+            background-color: #dedede;
+            font-size: 12px;
+            color: #ff172e;
+            position: absolute;
+            left: 340px;
+            
+      }
+#phone,#number1,#psd{
+	width: 260px;
+	height: 34px;
+}
+#number2{
+	width: 151px;
+	height:38px;
+	
+}
+#number3{
+	width: 96px;
+	height: 40px;
+	font-size: 12px;
+	margin-left: 8px;
+}
+#confirmPsd{
+	width: 255px;
+	height: 34px;
+}
+.txt{
+	font-size: 12px;
+	padding-left:60px;
+	color: #aaaaaa;
+}
+.agree{
+	width: 270px;
+	float: right;
+	font-size: 12px;
+}
+.agree a{color: blue;}
+.agree a:hover{text-decoration: underline; color: red;}
+.submit input{
+	border: none;
+	width: 260px;
+	height: 36px;
+	line-height: 36px;
+	text-align: center;
+	font-size: 12px;
+	color: white;
+	background: red;
+	margin-left: 55px;
+	margin-top: 28px;
+}
+
+
+
+
+
+.footerwrap{height: 50px;border-top:solid 1px #e6e6e6;margin-top: 54px;}
+
+.footer{
+	height: 50px;
+	
+}
+.fol{
+	width: 200px;
+	height: 40px;
+	
+}
+.fol a{
+	font-size: 12px;
+	line-height: 40px;
+}
+.fol a:hover{text-decoration: underline; color: red;}
+.fol span{
+	padding: 0 10px;
+}
+.for p {
+	width: 164px;
+	height: 40px;
+	font-size: 12px;
+	line-height: 40px;
+}
+
+
+
+
+
+
+
+
+	

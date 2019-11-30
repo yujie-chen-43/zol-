@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>购物车demo</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        .tab{
+            width: 1000px;
+            height: auto;
+            margin: 20px auto;
+            border-collapse: collapse;/*去除table间距*/
+        }
+        .header,.footer{
+            width: 100%;
+            line-height: 40px;
+            background-color: rgba(241, 241, 241, 0.42);
+            text-align: center;
+        }
+        .td_d,.goods{
+            width: 10%;
+            border: 1px solid black;
+        }
+        .goods{
+            width: 40%;
+            text-align: left;
+            padding-left: 20px;
+        }
+        .list{
+            text-align: center;
+        }
+        .num{
+            width: 35px;
+            outline: none;
+            text-align: center;
+        }
+        .minus,.add{
+            width: 25px;
+        }
+    </style>
+</head>
+<body>
+<table class="tab">
+    <tr class="header">
+        <td class="td_d"><input class="all_ck" type="checkbox">全选</td>
+        <td class="goods">商品</td>
+        <td class="td_d">单价</td>
+        <td class="td_d">数量</td>
+        <td class="td_d">小计</td>
+        <td class="td_d">操作</td>
+    </tr>
+    <tr class="list">
+        <td class="td_d"><input class="ck_box" type="checkbox"></td>
+        <td class="goods"><img src="image/1.png" align="left"><span>三只松鼠-碧根果210g</span></td>
+        <td class="td_d price">￥38.90</td>
+        <td class="td_d"><button class="minus">-</button><input class="num" value="1" type="text"><button class="add">+</button></td>
+        <td class="td_d smallprice">￥38.90</td>
+        <td class="td_d"><button class="delet">删除</button></td>
+    </tr>
+    <tr class="list">
+        <td class="td_d"><input class="ck_box" type="checkbox"></td>
+        <td class="goods"><img src="image/1.png" align="left"><span>三只松鼠-碧根果210g</span></td>
+        <td class="td_d price">￥38.90</td>
+        <td class="td_d"><button class="minus">-</button><input class="num" value="1" type="text"><button class="add">+</button></td>
+        <td class="td_d smallprice">￥38.90</td>
+        <td class="td_d"><button class="delet">删除</button></td>
+    </tr>
+    <tr class="list">
+        <td class="td_d"><input class="ck_box" type="checkbox"></td>
+        <td class="goods"><img src="image/1.png" align="left"><span>三只松鼠-碧根果210g</span></td>
+        <td class="td_d price">￥38.90</td>
+        <td class="td_d"><button class="minus">-</button><input class="num" value="1" type="text"><button class="add">+</button></td>
+        <td class="td_d smallprice">￥38.90</td>
+        <td class="td_d"><button class="delet">删除</button></td>
+    </tr>
+    <tr class="list">
+        <td class="td_d"><input class="ck_box" type="checkbox"></td>
+        <td class="goods"><img src="image/1.png" align="left"><span>三只松鼠-碧根果210g</span></td>
+        <td class="td_d price">￥38.90</td>
+        <td class="td_d"><button class="minus">-</button><input class="num" value="1" type="text"><button class="add">+</button></td>
+        <td class="td_d smallprice">￥38.90</td>
+        <td class="td_d"><button class="delet">删除</button></td>
+    </tr>
+    <tr class="list">
+        <td class="td_d"><input class="ck_box" type="checkbox"></td>
+        <td class="goods"><img src="image/1.png" align="left"><span>三只松鼠-碧根果210g</span></td>
+        <td class="td_d price">￥38.90</td>
+        <td class="td_d"><button class="minus">-</button><input class="num" value="1" type="text"><button class="add">+</button></td>
+        <td class="td_d smallprice">￥38.90</td>
+        <td class="td_d"><button class="delet">删除</button></td>
+    </tr>
+    <tr class="footer">
+        <td colspan="6">总价：<span class="allprice">￥0.00</span></td>
+    </tr>
+</table>
+<script src="../js/jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    $(function(){
+        //全选
+        $(".all_ck").click(function(){
+            //判断是否选中
+            if($(this).prop("checked")){ //true
+                $(".ck_box").prop({  //隐式迭代  链式操作
+                    checked:true
+                }).parents("tr").css("backgroundColor","pink");
+            }else{
+                $(".ck_box").prop({  //隐式迭代  链式操作
+                    checked:false
+                }).parents("tr").css("backgroundColor","");
+            }
+            AllPrice();
+        });
+        //单选
+        $(".ck_box").each(function(){
+            $(this).click(function(){
+                if($(this).prop("checked")){
+                    $(this).parents("tr").css("backgroundColor","pink")
+                }else {
+                    $(this).parents("tr").css("backgroundColor","")
+                }
+                AllPrice();
+            });
+        });
+        //数量
+        $(".minus").each(function(){
+            $(this).click(function(){
+                var number=$(this).siblings(".num").val();
+                number--;
+                $(this).siblings(".num").val(number<1?1:number);
+                SamllPrice($(this));
+                AllPrice();
+            })
+        });
+        $(".add").each(function(){
+            $(this).click(function(){
+                var number=$(this).siblings(".num").val();
+                number++;
+                $(this).siblings(".num").val(number);
+                SamllPrice($(this));
+                AllPrice();
+            })
+        });
+        $(".num").each(function(){
+            $(this).keypress(function(e){
+                if(isNaN(e.key)||e.keyCode==32){//32是空格键值
+                    return false;
+                }
+            }).keyup(function(){
+                //调用小计 总价函数
+                SamllPrice($(this));
+                AllPrice();
+            });
+        });
+        //删除事件
+        $(".delet").each(function(){
+           $(this).click(function(){
+               if($(this).parents("tr").find(".ck_box").prop("checked")){
+                   $(this).parents("tr").remove();
+                   AllPrice();
+               }
+           })
+        });
+        //封装小计函数
+        function SamllPrice(obj) {
+            var number=0;
+            if(obj.is(".num")){
+                number=obj.val();
+            }else{
+                number=obj.siblings(".num").val();
+            }
+            //获取单价
+            var len=obj.parent().prev().html().length;
+            var price=parseFloat(obj.parent().prev().html().substr(1,len-1));
+            //计算小计
+            obj.parent().next().html("￥"+(price*number).toFixed(2));
+        }
+        //封装总价
+        function AllPrice(){
+            var all_price=0;
+            $(".ck_box").each(function(){
+                if($(this).prop("checked")){
+                    var len=$(this).parents("tr").find(".smallprice").html().length;
+                    all_price+=parseFloat($(this).parents("tr").find(".smallprice").html().substr(1,len));
+                }
+            })
+            $(".allprice").html("￥"+all_price.toFixed(2));
+        }
+    })
+</script>
+</body>
+</html>
